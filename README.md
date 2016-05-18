@@ -14,21 +14,21 @@ I built this app to practice creating a multi-table application, exploring ways 
 ###ActiveRecord Queries
 
 #####Return all the recipes in database
-  all_recipes = Recipe.all
-	comments = Comment.where(article_id: article.id)
+* all_recipes = Recipe.all
+*	comments = Comment.where(article_id: article.id)
 
 #####Return all the comments in database
-  all_comments = Comment.all
+* all_comments = Comment.all
 
 #####Return the most recent recipe posted to database
-  most_recent_recipe = Recipe.last
+* most_recent_recipe = Recipe.last
 
 #####Return all the comments of the most recent recipe in database
-  comments = Comment.where(article_id: most_recent_recipe).to_a
+* comments = Comment.where(article_id: most_recent_recipe).to_a
 
 #####Return the most recent comment of all comments
-  most_recent_comment = Comment.last
+* most_recent_comment = Comment.last
 
 #####Return the recipe associated with the most recent comment in database
-  recipe = Comment.last.recipe
+* recipe = Comment.last.recipe
 
