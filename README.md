@@ -10,6 +10,7 @@ I built this app to practice creating a multi-table application, exploring ways 
 * Foreign key association between `Recipe` & `Comment` models
 	* comments belong to a recipe
 	* recipes have many comments
+* ActiveRecord validations for adding recipes and comments
 
 ###ActiveRecord Queries
 
