@@ -1,26 +1,34 @@
-Our brussels sprouts recipe blog needs a major makeover. We have many recipes and each of them can have many comments. We need to model this blog with ActiveRecord.
+#Recipe-Blog (ActiveRecord)
 
-###Learning Goals
-* Create a multi-table application
-* Explore ways to associate tables
-* Use a foreign key column
+This is a recipe blog app I built with Sinatra in conjunction with ActiveRecord. 
 
-###Instructions
-* Create a new Sinatra app with the [Sinatra ActiveRecord Starter Kit](https://github.com/LaunchAcademy/sinatra-activerecord-starter-kit). Follow the instructions in the reading about the basic setup.
-* Create a `Recipe` model and associated migration. Determine the column names as you deem necessary. You don't have to worry about ingredients here.
-* Create a `Comment` model and associated migration. Determine the column names as you deem necessary.
-* Associate the two tables so that each recipe can have multiple comments posted about it.
-* Load up your app in irb (see the reading for a description of how to do this) and follow these directions:
-  * Create 5 recipes
-  * Create 1-5 comments on all your recipes.
-* Answer the following questions:
-  * How would you return all the recipes in your database?
-  * How would you return all the comments in your database?
-  * How would you return the most recent recipe posted in your database?
-  * How would you return all the comments of the most recent recipe in your database?
-  * How would you return the most recent comment of all your comments?
-  * How would you return the recipe associated with the most recent comment in your database?
-  * How would you return all comments that include the string `brussels` in them?
+I built this app to practice creating a multi-table application, exploring ways to associate tables, and using foreign key columns to create complex database relationships. I used PostgresSQL for database persistence.
 
-####Output
-Include a `README.md` file that contains the code for the queries above. Submit your code through `et`.
+###Features
+* `Recipe` model, with associated ActiveRecord migration.
+* `Comment` model, with associated ActiveRecord migration.
+* Foreign key association between `Recipe` & `Comment` models
+	* comments belong to a recipe
+	* recipes have many comments
+
+###ActiveRecord Queries
+
+#####Return all the recipes in database
+  all_recipes = Recipe.all
+	comments = Comment.where(article_id: article.id)
+
+#####Return all the comments in database
+  all_comments = Comment.all
+
+#####Return the most recent recipe posted to database
+  most_recent_recipe = Recipe.last
+
+#####Return all the comments of the most recent recipe in database
+  comments = Comment.where(article_id: most_recent_recipe).to_a
+
+#####Return the most recent comment of all comments
+  most_recent_comment = Comment.last
+
+#####Return the recipe associated with the most recent comment in database
+  recipe = Comment.last.recipe
+
